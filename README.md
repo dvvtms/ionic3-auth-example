@@ -1,26 +1,53 @@
-This is a starter template for [Ionic](http://ionicframework.com/docs/) projects.
+# Ionic 3 AngularFire 2 Authentication examples
 
-## How to use this template
+## Features
+* Email authentication with Angular form validator
+* ~~Facebook authentication~~
+* ~~Google authentication~~
+* ~~Password recovery~~
+* ~~In-app notifications~~
 
-*This template does not work on its own*. The shared files for each starter are found in the [ionic2-app-base repo](https://github.com/ionic-team/ionic2-app-base).
-
-To use this template, either create a new ionic project using the ionic node.js utility, or copy the files from this repository into the [Starter App Base](https://github.com/ionic-team/ionic2-app-base).
-
-### With the Ionic CLI:
-
-Take the name after `ionic2-starter-`, and that is the name of the template to be used when using the `ionic start` command below:
-
-```bash
-$ sudo npm install -g ionic cordova
-$ ionic start myBlank blank
+## Installation
+#### Clone & npm install & run
+```sh
+$ git clone git@github.com:devvtms/ionic2-auth-example.git
+$ cd ionic2-auth-example
+$ npm install
+$ ionic serve
 ```
 
-Then, to run it, cd into `myBlank` and run:
-
-```bash
-$ ionic cordova platform add ios
-$ ionic cordova run ios
+## Before serve
+Update Firebase 3 configuration in ```/src/environments/environment.ts```
+```ts
+ export const environment = {
+  production: false,
+  firebase: {
+    apiKey: '<your-key>',
+    authDomain: '<your-project-authdomain>',
+    databaseURL: '<your-database-URL>',
+    projectId: '<your-project-id>',
+    storageBucket: '<your-storage-bucket>',
+    messagingSenderId: '<your-messaging-sender-id>'
+  }
+};
 ```
 
-Substitute ios for android if not on a Mac.
+## Ionic info
+```
+global packages:
 
+    @ionic/cli-utils : 1.4.0
+    Ionic CLI        : 3.4.0
+
+System:
+
+    Node       : v8.0.0
+    OS         : macOS Sierra
+    Xcode      : Xcode 8.3.3 Build version 8E3004b
+    ios-deploy : not installed
+    ios-sim    : not installed
+    npm        : 5.0.3
+```
+## Issues
+**White screen after ```ionic serve``` ?**
+Dont forget Update Firebase 3 configuration.
