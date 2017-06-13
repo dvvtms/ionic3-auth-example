@@ -48,6 +48,10 @@ System:
     ios-sim    : not installed
     npm        : 5.0.3
 ```
+
+## Older version
+[i2a2ea](https://github.com/devvtms/i2a2ea)
+
 ## Issues
 **White screen after ```ionic serve``` ?**
 Dont forget Update Firebase 3 configuration.
