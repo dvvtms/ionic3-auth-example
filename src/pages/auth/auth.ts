@@ -26,12 +26,12 @@ export class AuthPage {
     console.log('ionViewDidLoad AuthPage');
   }
 
-  signInModal() {
+  signInWithMailModal() {
     let modal = this.modalCtrl.create(EmailSignInComponent);
     modal.present();
   }
 
-  signUpModal() {
+  signUpWithMailModal() {
     let modal = this.modalCtrl.create(EmailSignUpComponent);
     modal.present();
   }

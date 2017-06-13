@@ -2,10 +2,10 @@
 
 ## Features
 * Email authentication with Angular form validator
+* In-app notifications: show authentication results in modal
 * ~~Facebook authentication~~
 * ~~Google authentication~~
 * ~~Password recovery~~
-* ~~In-app notifications~~
 
 ## Installation
 #### Clone & npm install & run
