@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      {{title}}
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <form [formGroup]="signInForm" (ngSubmit)="signInFormSubmit()">
+
+    <ion-item>
+      <ion-label>Email</ion-label>
+      <ion-input type="email" formControlName="email" name="email" required clearInput></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Password</ion-label>
+      <ion-input type="password" formControlName="password" clearInput></ion-input>
+    </ion-item>
+
+    <button ion-button type="submit" [disabled]="!signInForm.valid" block>Sign In</button>
+  </form>
+</ion-content>
