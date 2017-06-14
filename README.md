@@ -11,7 +11,7 @@
 #### Clone & npm install & run
 ```sh
 $ git clone git@github.com:devvtms/ionic2-auth-example.git
-$ cd ionic2-auth-example
+$ cd ionic3-auth-example
 $ npm install
 $ ionic serve
 ```
