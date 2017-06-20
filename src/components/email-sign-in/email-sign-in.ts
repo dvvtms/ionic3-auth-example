@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { AuthProvider } from '../../providers/auth/auth';
 import { ToastController } from 'ionic-angular';
+import { ViewController } from 'ionic-angular';
 
 /**
  * 
@@ -21,7 +22,11 @@ export class EmailSignInComponent {
   public signInForm: FormGroup;
   public title = 'Sign in with email'
 
-  constructor(private formBuilder: FormBuilder, public auth: AuthProvider, public toastCtrl: ToastController) {
+  constructor(
+    private formBuilder: FormBuilder,
+    public auth: AuthProvider,
+    public toastCtrl: ToastController,
+    public viewCtrl: ViewController) {
 
     // building the form
     this.signInForm = formBuilder.group({
@@ -75,7 +80,10 @@ export class EmailSignInComponent {
         })
     }
   }
-  
+
+  cancelClicked() {
+    this.viewCtrl.dismiss()
+  }
 }
 
 
