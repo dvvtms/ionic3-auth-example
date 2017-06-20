@@ -57,19 +57,26 @@ export class EmailSignInComponent {
         },
 
         /**
-         * when error appears in valiation, we show the error message. 
-         * Here you can customise messages about auth, when you check error message props:
-         * if (error.message = '') {}
+         * Handle Authentication errors
+         * Here you can customise error messages like our example.
+         * https://firebase.google.com/docs/reference/js/firebase.auth.Error
          * 
-         * @todo add examples
+         * mismatch with error interface: https://github.com/angular/angularfire2/issues/976
          */
-        (error) => {
-          this.createToast(error.message).present();
+        (error: any) => {
+          switch (error.code) {
+            case 'auth/invalid-api-key':
+              this.createToast('Invalid API key, don\'t forget update').present();
+              break;
+            default:
+              this.createToast(error.message).present();
+              break;
+          }
         })
     }
   }
-
-
+  
 }
+
 
 
