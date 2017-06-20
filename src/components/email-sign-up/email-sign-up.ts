@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { AuthProvider } from '../../providers/auth/auth';
 import { ToastController } from 'ionic-angular';
+import { ViewController } from 'ionic-angular';
 
 /**
  * 
@@ -19,7 +20,11 @@ export class EmailSignUpComponent {
   public title = 'Sign up with email'
   public emailSignUpForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, public auth: AuthProvider, public toastCtrl: ToastController) {
+  constructor(
+    private formBuilder: FormBuilder,
+    public auth: AuthProvider,
+    public toastCtrl: ToastController,
+    public viewCtrl: ViewController) {
 
     // building the form
     this.emailSignUpForm = formBuilder.group({
@@ -63,6 +68,10 @@ export class EmailSignUpComponent {
           this.createToast(error.message).present();
         })
     }
+  }
+
+  cancelClicked() {
+    this.viewCtrl.dismiss()
   }
 
 }
