@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { AuthProvider } from '../../providers/auth/auth';
 import { ToastController } from 'ionic-angular';
+import { ViewController } from 'ionic-angular';
 
 /**
  * 
@@ -21,7 +22,11 @@ export class EmailSignInComponent {
   public signInForm: FormGroup;
   public title = 'Sign in with email'
 
-  constructor(private formBuilder: FormBuilder, public auth: AuthProvider, public toastCtrl: ToastController) {
+  constructor(
+    private formBuilder: FormBuilder,
+    public auth: AuthProvider,
+    public toastCtrl: ToastController,
+    public viewCtrl: ViewController) {
 
     // building the form
     this.signInForm = formBuilder.group({
@@ -53,23 +58,36 @@ export class EmailSignInComponent {
       // if the form is valid, we continue with validation
       this.auth.signInUser(this.signInForm.value.email, this.signInForm.value.password)
         .then(() => {
+          // showing succesfull message
           this.createToast('Signed in with email: ' + this.signInForm.value.email).present()
+          // closing dialog
+          this.viewCtrl.dismiss()
         },
 
         /**
-         * when error appears in valiation, we show the error message. 
-         * Here you can customise messages about auth, when you check error message props:
-         * if (error.message = '') {}
+         * Handle Authentication errors
+         * Here you can customise error messages like our example.
+         * https://firebase.google.com/docs/reference/js/firebase.auth.Error
          * 
-         * @todo add examples
+         * mismatch with error interface: https://github.com/angular/angularfire2/issues/976
          */
-        (error) => {
-          this.createToast(error.message).present();
+        (error: any) => {
+          switch (error.code) {
+            case 'auth/invalid-api-key':
+              this.createToast('Invalid API key, don\'t forget update').present();
+              break;
+            default:
+              this.createToast(error.message).present();
+              break;
+          }
         })
     }
   }
 
-
+  cancelClicked() {
+    this.viewCtrl.dismiss()
+  }
 }
+
 
 

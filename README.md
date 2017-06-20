@@ -7,6 +7,8 @@
 * ~~Google authentication~~
 * ~~Password recovery~~
 
+![](http://i.imgur.com/Ztpk0v2.gif)
+
 ## Installation
 #### Clone & npm install & run
 ```sh
@@ -48,6 +50,8 @@ System:
     ios-sim    : not installed
     npm        : 5.0.3
 ```
+
+### any interesting? please give a star :)
 
 ## Older version
 [i2a2ea](https://github.com/devvtms/i2a2ea)

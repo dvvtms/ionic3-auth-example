@@ -19,5 +19,7 @@
     </ion-item>
 
     <button ion-button item-right type="submit" [disabled]="!emailSignUpForm.valid" block>Sign Up</button>
+    <button ion-button type="button" (click)="cancelClicked()" block>Cancel</button>
+
   </form>
 </ion-content>
