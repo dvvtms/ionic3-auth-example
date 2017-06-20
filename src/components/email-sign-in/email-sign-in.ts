@@ -58,7 +58,10 @@ export class EmailSignInComponent {
       // if the form is valid, we continue with validation
       this.auth.signInUser(this.signInForm.value.email, this.signInForm.value.password)
         .then(() => {
+          // showing succesfull message
           this.createToast('Signed in with email: ' + this.signInForm.value.email).present()
+          // closing dialog
+          this.viewCtrl.dismiss()
         },
 
         /**

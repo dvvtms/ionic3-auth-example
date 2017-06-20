@@ -55,7 +55,10 @@ export class EmailSignUpComponent {
       // if the form is valid, we continue with validation
       this.auth.signUpUser(this.emailSignUpForm.value.email, this.emailSignUpForm.value.password)
         .then(() => {
+          // showing succesfull message
           this.createToast('Signed up with email: ' + this.emailSignUpForm.value.email).present()
+          // closing dialog
+          this.viewCtrl.dismiss()
         },
         /**
          * Handle Authentication errors
