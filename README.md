@@ -7,8 +7,6 @@
 * ~~Google authentication~~
 * ~~Password recovery~~
 
-![](http://i.imgur.com/Ztpk0v2.gif)
-
 ## Installation
 #### Clone & npm install & run
 ```sh
@@ -17,6 +15,7 @@ $ cd ionic3-auth-example
 $ npm install
 $ ionic serve
 ```
+![](http://i.imgur.com/BCiEbvn.gif)
 
 ## Before serve
 Update Firebase 3 configuration in ```/src/environments/environment.ts```
@@ -51,10 +50,10 @@ System:
     npm        : 5.0.3
 ```
 
-### any interesting? please give a star :)
-
 ## Older version
 [i2a2ea](https://github.com/devvtms/i2a2ea)
+
+#### any interesting? please give a star :)
 
 ## Issues
 **White screen after ```ionic serve``` ?**
